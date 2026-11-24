@@ -35,9 +35,9 @@ Both workspace packages install Click and expose a console script: `greetings` f
 
 ## Agent Skills
 
-This repository includes one CLI-backed Skill for each workspace package, using the `.github/skills/<skill-name>/SKILL.md` layout:
+This repository includes one CLI-backed Skill inside each workspace package, using the package-local `.github/skills/<skill-name>/SKILL.md` layout:
 
-- [`greetings-cli`](.github/skills/greetings-cli/SKILL.md) runs the `greetings` CLI from the `greetings` package.
-- [`hello-app-cli`](.github/skills/hello-app-cli/SKILL.md) runs the `hello-app` CLI from the `hello-app` package.
+- [`greetings-cli`](packages/greetings/.github/skills/greetings-cli/SKILL.md) runs the `greetings` CLI from the `greetings` package.
+- [`hello-app-cli`](apps/hello-app/.github/skills/hello-app-cli/SKILL.md) runs the `hello-app` CLI from the `hello-app` package.
 
-Both Skills use `uv run --package ...` so they exercise the selected member of the shared workspace and its installed console entry point.
+Both Skills use `uv tool run --from <package-path>` so they exercise the selected member's installed console entry point. Run these commands from the monorepo root.
